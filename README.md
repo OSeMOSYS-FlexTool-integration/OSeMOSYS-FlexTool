@@ -1,5 +1,13 @@
 # OSeMOSYS-Flextool
-Integrating OSeMOSYS and Flextool energy system models. Includes transforming a OSeMOSYS model to Flextool through INES spec and running OSeMOSYS as capacity expansion model and passing these results to FlexTool, where the flexibility of the new system can be tested.
+Integrating OSeMOSYS and IRENA FlexTool energy system models. Includes transforming a OSeMOSYS model to FlexTool through INES specification (https://github.com/ines-tools/ines-spec) and running OSeMOSYS as capacity expansion model and passing these results to FlexTool, where the flexibility of the new system can be tested.
+
+For this workflow, two transformations were added to the INES-tools. These are OSeMOSYS to INES specification:
+https://github.com/ines-tools/ines-osemosys and from INES specification to FlexTool https://github.com/ines-tools/ines-flextool. Additionally, some generic functions are needed from INES-tools (https://github.com/ines-tools/ines-tools).
+
+This uses Spine-Toolbox for the database and workflow management (https://github.com/spine-tools/Spine-Toolbox)
+
+For running the OSeMOSYS separately in Spine Toolbox go to: 
+https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-SpineToolbox
 
 # Status
 
