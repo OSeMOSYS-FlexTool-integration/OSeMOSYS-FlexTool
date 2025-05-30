@@ -1,0 +1,20 @@
+{
+    "name": "run_osemosys_python_wrapper",
+    "tooltype": "python",
+    "includes": [
+        "run_osemosys_python_wrapper.py",
+        "glpsol.exe",
+        "glpk_4_61.dll"
+    ],
+    "description": "",
+    "inputfiles": [
+        "model.dat",
+        "model.mod"
+    ],
+    "inputfiles_opt": [],
+    "outputfiles": [
+        "results/*.csv"
+    ],
+    "cmdline_args": [],
+    "includes_main_path": "../../.."
+}

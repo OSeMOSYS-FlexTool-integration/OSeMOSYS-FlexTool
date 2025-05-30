@@ -1,0 +1,380 @@
+AccumulatedAnnualDemand:
+- - REGION
+  - FUEL
+- - YEAR
+- - 0
+  - 1
+  - 2
+AnnualEmissionLimit:
+- - REGION
+  - EMISSION
+- - YEAR
+- - 0
+  - 1
+  - 2
+AnnualExogenousEmission:
+- - REGION
+  - EMISSION
+- - YEAR
+- - 0
+  - 1
+  - 2
+AvailabilityFactor:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+CapacityFactor:
+- - REGION
+  - TECHNOLOGY
+- - TIMESLICE
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+CapacityOfOneTechnologyUnit:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+CapacityToActivityUnit:
+- - REGION
+  - TECHNOLOGY
+- []
+- - 0
+  - 1
+CapitalCost:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+CapitalCostStorage:
+- - REGION
+  - STORAGE
+- - YEAR
+- - 0
+  - 1
+  - 2
+Conversionld:
+- - model
+- - TIMESLICE
+  - DAYTYPE
+- - 1
+  - 2
+Conversionlh:
+- - model
+- - TIMESLICE
+  - DAILYTIMEBRACKET
+- - 1
+  - 2
+Conversionls:
+- - model
+- - TIMESLICE
+  - SEASON
+- - 1
+  - 2
+DaySplit:
+- - model
+- - DAILYTIMEBRACKET
+  - YEAR
+- - 1
+  - 2
+DaysInDayType:
+- - model
+- - SEASON
+  - DAYTYPE
+  - YEAR
+- - 1
+  - 2
+  - 3
+DepreciationMethod:
+- - REGION
+- []
+- - 0
+DiscountRate:
+- - REGION
+- []
+- - 0
+DiscountRateIdv:
+- - REGION
+  - TECHNOLOGY
+- []
+- - 0
+  - 1
+DiscountRateStorage:
+- - REGION
+  - STORAGE
+- []
+- - 0
+  - 1
+EmissionActivityRatio:
+- - REGION
+  - TECHNOLOGY
+  - EMISSION
+- - MODE_OF_OPERATION
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+  - 4
+EmissionsPenalty:
+- - REGION
+  - EMISSION
+- - YEAR
+- - 0
+  - 1
+  - 2
+FixedCost:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+InputActivityRatio:
+- - REGION
+  - TECHNOLOGY
+  - FUEL
+- - MODE_OF_OPERATION
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+  - 4
+MinStorageCharge:
+- - REGION
+  - STORAGE
+- - YEAR
+- - 0
+  - 1
+  - 2
+ModelPeriodEmissionLimit:
+- - REGION
+  - EMISSION
+- []
+- - 0
+  - 1
+ModelPeriodExogenousEmission:
+- - REGION
+  - EMISSION
+- []
+- - 0
+  - 1
+OperationalLife:
+- - REGION
+  - TECHNOLOGY
+- []
+- - 0
+  - 1
+OperationalLifeStorage:
+- - REGION
+  - STORAGE
+- []
+- - 0
+  - 1
+OutputActivityRatio:
+- - REGION
+  - TECHNOLOGY
+  - FUEL
+- - MODE_OF_OPERATION
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+  - 4
+REMinProductionTarget:
+- - REGION
+- - YEAR
+- - 0
+  - 1
+RETagFuel:
+- - REGION
+  - FUEL
+- - YEAR
+- - 0
+  - 1
+  - 2
+RETagTechnology:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+ReserveMargin:
+- - REGION
+- - YEAR
+- - 0
+  - 1
+ReserveMarginTagFuel:
+- - REGION
+  - FUEL
+- - YEAR
+- - 0
+  - 1
+  - 2
+ReserveMarginTagTechnology:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+ResidualCapacity:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+ResidualStorageCapacity:
+- - REGION
+  - STORAGE
+- - YEAR
+- - 0
+  - 1
+  - 2
+ResultsPath:
+- - model
+- []
+- []
+SpecifiedAnnualDemand:
+- - REGION
+  - FUEL
+- - YEAR
+- - 0
+  - 1
+  - 2
+SpecifiedDemandProfile:
+- - REGION
+  - FUEL
+- - TIMESLICE
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+StorageLevelStart:
+- - REGION
+  - STORAGE
+- []
+- - 0
+  - 1
+StorageMaxChargeRate:
+- - REGION
+  - STORAGE
+- []
+- - 0
+  - 1
+StorageMaxDischargeRate:
+- - REGION
+  - STORAGE
+- []
+- - 0
+  - 1
+TechnologyFromStorage:
+- - REGION
+  - TECHNOLOGY
+  - STORAGE
+- - MODE_OF_OPERATION
+- - 0
+  - 1
+  - 2
+  - 3
+TechnologyToStorage:
+- - REGION
+  - TECHNOLOGY
+  - STORAGE
+- - MODE_OF_OPERATION
+- - 0
+  - 1
+  - 2
+  - 3
+TotalAnnualMaxCapacity:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+TotalAnnualMaxCapacityInvestment:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+TotalAnnualMinCapacity:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+TotalAnnualMinCapacityInvestment:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+TotalTechnologyAnnualActivityLowerLimit:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+TotalTechnologyAnnualActivityUpperLimit:
+- - REGION
+  - TECHNOLOGY
+- - YEAR
+- - 0
+  - 1
+  - 2
+TotalTechnologyModelPeriodActivityLowerLimit:
+- - REGION
+  - TECHNOLOGY
+- []
+- - 0
+  - 1
+TotalTechnologyModelPeriodActivityUpperLimit:
+- - REGION
+  - TECHNOLOGY
+- []
+- - 0
+  - 1
+TradeRoute:
+- - REGION
+  - REGION
+  - FUEL
+- - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+VariableCost:
+- - REGION
+  - TECHNOLOGY
+- - MODE_OF_OPERATION
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+YearSplit:
+- - model
+- - TIMESLICE
+  - YEAR
+- - 1
+  - 2

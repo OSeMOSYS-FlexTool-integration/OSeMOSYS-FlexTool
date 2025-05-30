@@ -1,0 +1,621 @@
+{
+    "project": {
+        "version": 13,
+        "description": "",
+        "settings": {
+            "enable_execute_all": true
+        },
+        "specifications": {
+            "Tool": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/read_osemosys.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/write_osemosys.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/run_osemosys.json"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/aetart/Documents/ines-osemosys/.spinetoolbox/specifications/Tool/osemosys_to_ines.json"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/aetart/Documents/ines-osemosys/.spinetoolbox/specifications/Tool/ines_to_flextool.json"
+                },
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/aetart/Documents/flextool/.spinetoolbox/specifications/Tool/flextool3.json"
+                }
+            ],
+            "Importer": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/aetart/Documents/flextool/.spinetoolbox/specifications/Importer/import_flex3.json"
+                }
+            ],
+            "Exporter": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/aetart/Documents/flextool/.spinetoolbox/specifications/Exporter/results_to_excel.json"
+                }
+            ]
+        },
+        "connections": [
+            {
+                "name": "from Osemosys__data to Write_OSeMOSYS",
+                "from": [
+                    "Osemosys__data",
+                    "bottom"
+                ],
+                "to": [
+                    "Write_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@Osemosys__data": {
+                            "scenario_filter": {
+                                "base": true
+                            },
+                            "alternative_filter": {
+                                "base": true
+                            }
+                        }
+                    },
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys_data to Read_OSeMOSYS",
+                "from": [
+                    "Osemosys_data",
+                    "right"
+                ],
+                "to": [
+                    "Read_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys_settings to Read_OSeMOSYS",
+                "from": [
+                    "Osemosys_settings",
+                    "right"
+                ],
+                "to": [
+                    "Read_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Read_OSeMOSYS to Osemosys__data",
+                "from": [
+                    "Read_OSeMOSYS",
+                    "right"
+                ],
+                "to": [
+                    "Osemosys__data",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys_settings to Write_OSeMOSYS",
+                "from": [
+                    "Osemosys_settings",
+                    "right"
+                ],
+                "to": [
+                    "Write_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys_settings to Run_OSeMOSYS",
+                "from": [
+                    "Osemosys_settings",
+                    "right"
+                ],
+                "to": [
+                    "Run_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys_structure to Run_OSeMOSYS",
+                "from": [
+                    "Osemosys_structure",
+                    "right"
+                ],
+                "to": [
+                    "Run_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Write_OSeMOSYS to Run_OSeMOSYS",
+                "from": [
+                    "Write_OSeMOSYS",
+                    "bottom"
+                ],
+                "to": [
+                    "Run_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys__data to OSeMOSYS to ines",
+                "from": [
+                    "Osemosys__data",
+                    "right"
+                ],
+                "to": [
+                    "OSeMOSYS to ines",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {
+                        "db_url@Osemosys__data": {
+                            "scenario_filter": {
+                                "base": true
+                            },
+                            "alternative_filter": {
+                                "base": true
+                            }
+                        }
+                    },
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from OSeMOSYS to ines to Ines db",
+                "from": [
+                    "OSeMOSYS to ines",
+                    "right"
+                ],
+                "to": [
+                    "Ines db",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Ines db to ines_to_flextool",
+                "from": [
+                    "Ines db",
+                    "right"
+                ],
+                "to": [
+                    "ines_to_flextool",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from ines_to_flextool to FlexTool input db",
+                "from": [
+                    "ines_to_flextool",
+                    "right"
+                ],
+                "to": [
+                    "FlexTool input db",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from FlexTool input db to FlexTool3",
+                "from": [
+                    "FlexTool input db",
+                    "right"
+                ],
+                "to": [
+                    "FlexTool3",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from FlexTool3 to Import_flex3",
+                "from": [
+                    "FlexTool3",
+                    "bottom"
+                ],
+                "to": [
+                    "Import_flex3",
+                    "right"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Import_flex3 to FlexTool results db",
+                "from": [
+                    "Import_flex3",
+                    "left"
+                ],
+                "to": [
+                    "FlexTool results db",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from FlexTool results db to Results_to_Excel",
+                "from": [
+                    "FlexTool results db",
+                    "bottom"
+                ],
+                "to": [
+                    "Results_to_Excel",
+                    "right"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            }
+        ],
+        "jumps": []
+    },
+    "items": {
+        "Osemosys_data": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -748.5021834868328,
+            "y": -343.6420089351582,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "data/example/model.dat"
+                }
+            ],
+            "db_references": []
+        },
+        "Osemosys__data": {
+            "type": "Data Store",
+            "description": "",
+            "x": -138.6876868602409,
+            "y": -340.5105044065227,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "osemosys_db.sqlite"
+                },
+                "schema": ""
+            }
+        },
+        "Osemosys_structure": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -750.6331027371237,
+            "y": -34.59591161906149,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "mathprog_files/model.mod"
+                }
+            ],
+            "db_references": []
+        },
+        "Osemosys_settings": {
+            "type": "Data Connection",
+            "description": "",
+            "x": -748.547302650979,
+            "y": -170.4423617623075,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "settings_OSeMOSYS.yaml"
+                }
+            ],
+            "db_references": []
+        },
+        "Read_OSeMOSYS": {
+            "type": "Tool",
+            "description": "",
+            "x": -473.9748946494644,
+            "y": -343.4900936172904,
+            "specification": "read_osemosys",
+            "execute_in_work": false,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "<project>/settings_OSeMOSYS.yaml"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Osemosys__data"
+                },
+                {
+                    "type": "resource",
+                    "arg": "<project>/data/example/model.dat"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "Write_OSeMOSYS": {
+            "type": "Tool",
+            "description": "",
+            "x": -88.27191825696151,
+            "y": -185.42070881138395,
+            "specification": "write_osemosys",
+            "execute_in_work": false,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "<project>/settings_OSeMOSYS.yaml"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Osemosys__data"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "Run_OSeMOSYS": {
+            "type": "Tool",
+            "description": "",
+            "x": -37.16583897276966,
+            "y": -34.71979160546948,
+            "specification": "run_osemosys",
+            "execute_in_work": false,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "<project>/settings_OSeMOSYS.yaml"
+                },
+                {
+                    "type": "resource",
+                    "arg": "<project>/mathprog_files/model.mod"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "OSeMOSYS to ines": {
+            "type": "Tool",
+            "description": "",
+            "x": 36.373123569590526,
+            "y": -340.0096333679114,
+            "specification": "OSeMOSYS to ines",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "ines_to_flextool": {
+            "type": "Tool",
+            "description": "",
+            "x": 343.17251367831057,
+            "y": -341.59107352311105,
+            "specification": "ines_to_flextool",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "FlexTool3": {
+            "type": "Tool",
+            "description": "",
+            "x": 597.7843786654443,
+            "y": -343.17251367831057,
+            "specification": "FlexTool3",
+            "execute_in_work": true,
+            "cmd_line_args": [],
+            "kill_completed_processes": false,
+            "log_process_output": false
+        },
+        "Import_flex3": {
+            "type": "Importer",
+            "description": "",
+            "x": 547.1782936990571,
+            "y": -215.07586110714396,
+            "specification": "Import_flex3",
+            "cancel_on_error": false,
+            "on_conflict": "merge",
+            "file_selection": [
+                [
+                    "output/*.csv",
+                    true
+                ]
+            ]
+        },
+        "Results_to_Excel": {
+            "type": "Exporter",
+            "description": "",
+            "x": 488.66500795667264,
+            "y": 1.5814401551996005,
+            "output_time_stamps": false,
+            "cancel_on_error": true,
+            "output_labels": [
+                {
+                    "in_label": "db_url@FlexTool results db",
+                    "out_label": "FlexTool results db_exported@Results_to_Excel"
+                }
+            ],
+            "specification": "Results_to_Excel"
+        },
+        "Ines db": {
+            "type": "Data Store",
+            "description": "",
+            "x": 202.42433986554724,
+            "y": -338.4281932127119,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "ines-spec.sqlite"
+                },
+                "schema": ""
+            }
+        },
+        "FlexTool input db": {
+            "type": "Data Store",
+            "description": "",
+            "x": 483.92068749107375,
+            "y": -344.7539538335102,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "flextool_input_data.sqlite"
+                },
+                "schema": ""
+            }
+        },
+        "FlexTool results db": {
+            "type": "Data Store",
+            "description": "",
+            "x": 545.5968535438576,
+            "y": -105.95649039837235,
+            "url": {
+                "dialect": "sqlite",
+                "host": "",
+                "port": "",
+                "database": {
+                    "type": "path",
+                    "relative": true,
+                    "path": "flextool_results.sqlite"
+                },
+                "schema": ""
+            }
+        }
+    }
+}

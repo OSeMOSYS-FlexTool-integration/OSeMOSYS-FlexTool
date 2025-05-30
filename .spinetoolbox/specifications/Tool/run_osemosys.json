@@ -1,0 +1,13 @@
+{
+    "name": "run_osemosys",
+    "tooltype": "python",
+    "includes": [
+        "run_osemosys_python_wrapper.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../.."
+}

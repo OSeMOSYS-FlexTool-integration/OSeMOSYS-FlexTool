@@ -1,0 +1,13 @@
+{
+    "name": "read_osemosys",
+    "tooltype": "python",
+    "includes": [
+        "read_osemosys.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../.."
+}
