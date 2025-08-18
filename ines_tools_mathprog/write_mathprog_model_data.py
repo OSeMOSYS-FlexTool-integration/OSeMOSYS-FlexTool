@@ -150,7 +150,7 @@ def write_mathprog_data(url_db, file, param_listing):
                                     line.append(":\t")
                                     for index in values[k].indexes:
                                         line.append("\t")
-                                        line.append(index)
+                                        line.append(str(index))
                                     line.append("\t:=")
                                     line = "".join(line)
                                     print(line, file=file)
@@ -177,7 +177,7 @@ def write_mathprog_data(url_db, file, param_listing):
                                 line.append(":\t")
                                 for index in values[k].values[0].indexes:
                                     line.append("\t")
-                                    line.append(index)
+                                    line.append(str(index))
                                 line.append("\t:=")
                                 line = "".join(line)
                                 print(line, file=file)
@@ -201,10 +201,13 @@ def write_mathprog_data(url_db, file, param_listing):
 
 if __name__ == "__main__":
 
-    if len(sys.argv) < 2:
-        exit("You need to provide the url of the source Spine database as an argument")
-    url_db = sys.argv[2]
-    with open(sys.argv[1], 'r') as yaml_file:
+    #if len(sys.argv) < 2:
+    #    exit("You need to provide the url of the source Spine database as an argument")
+    #url_db = sys.argv[2]
+    #settings_file = sys.argv[1]
+    settings_file = "C:/Users/aetart/Documents/OSeMOSYS-FlexTool/settings_OSeMOSYS.yaml"
+    url_db = 'sqlite:///C:/Users/aetart/Documents/OSeMOSYS-FlexTool/osemosys_db.sqlite'
+    with open(settings_file, 'r') as yaml_file:
         settings = yaml.safe_load(yaml_file)
 
     with open('param_dimens.yaml', 'r') as yaml_file:

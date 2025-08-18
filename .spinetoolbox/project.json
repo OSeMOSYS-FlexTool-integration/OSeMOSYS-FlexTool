@@ -3,7 +3,7 @@
         "version": 13,
         "description": "",
         "settings": {
-            "enable_execute_all": true
+            "enable_execute_all": false
         },
         "specifications": {
             "Tool": [
@@ -36,6 +36,11 @@
                     "type": "path",
                     "relative": false,
                     "path": "C:/Users/aetart/Documents/flextool/.spinetoolbox/specifications/Tool/flextool3.json"
+                },
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": ".spinetoolbox/specifications/Tool/osemosys_results_to_flextool.json"
                 }
             ],
             "Importer": [
@@ -273,7 +278,16 @@
                     "left"
                 ],
                 "filter_settings": {
-                    "known_filters": {},
+                    "known_filters": {
+                        "db_url@Ines db": {
+                            "scenario_filter": {
+                                "base": true
+                            },
+                            "alternative_filter": {
+                                "base": true
+                            }
+                        }
+                    },
                     "auto_online": true,
                     "enabled_filter_types": {
                         "alternative_filter": false,
@@ -311,26 +325,16 @@
                     "left"
                 ],
                 "filter_settings": {
-                    "known_filters": {},
-                    "auto_online": true,
-                    "enabled_filter_types": {
-                        "alternative_filter": false,
-                        "scenario_filter": true
-                    }
-                }
-            },
-            {
-                "name": "from FlexTool3 to Import_flex3",
-                "from": [
-                    "FlexTool3",
-                    "bottom"
-                ],
-                "to": [
-                    "Import_flex3",
-                    "right"
-                ],
-                "filter_settings": {
-                    "known_filters": {},
+                    "known_filters": {
+                        "db_url@FlexTool input db": {
+                            "scenario_filter": {
+                                "base": true
+                            },
+                            "alternative_filter": {
+                                "base": true
+                            }
+                        }
+                    },
                     "auto_online": true,
                     "enabled_filter_types": {
                         "alternative_filter": false,
@@ -358,14 +362,147 @@
                 }
             },
             {
+                "name": "from Timeslices to time to OSeMOSYS to ines",
+                "from": [
+                    "Timeslices to time",
+                    "left"
+                ],
+                "to": [
+                    "OSeMOSYS to ines",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys to ines settings to OSeMOSYS to ines",
+                "from": [
+                    "Osemosys to ines settings",
+                    "left"
+                ],
+                "to": [
+                    "OSeMOSYS to ines",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from FlexTool3 to Import_flex3",
+                "from": [
+                    "FlexTool3",
+                    "right"
+                ],
+                "to": [
+                    "Import_flex3",
+                    "right"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
                 "name": "from FlexTool results db to Results_to_Excel",
                 "from": [
                     "FlexTool results db",
-                    "bottom"
+                    "right"
                 ],
                 "to": [
                     "Results_to_Excel",
                     "right"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Run_OSeMOSYS to Osemosys_results_to_flextool",
+                "from": [
+                    "Run_OSeMOSYS",
+                    "right"
+                ],
+                "to": [
+                    "Osemosys_results_to_flextool",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys to ines settings to Osemosys_results_to_flextool",
+                "from": [
+                    "Osemosys to ines settings",
+                    "bottom"
+                ],
+                "to": [
+                    "Osemosys_results_to_flextool",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys_results_to_flextool to FlexTool input db",
+                "from": [
+                    "Osemosys_results_to_flextool",
+                    "right"
+                ],
+                "to": [
+                    "FlexTool input db",
+                    "bottom"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
+            },
+            {
+                "name": "from Osemosys_structure to Read_OSeMOSYS",
+                "from": [
+                    "Osemosys_structure",
+                    "right"
+                ],
+                "to": [
+                    "Read_OSeMOSYS",
+                    "left"
                 ],
                 "filter_settings": {
                     "known_filters": {},
@@ -383,13 +520,13 @@
         "Osemosys_data": {
             "type": "Data Connection",
             "description": "",
-            "x": -748.5021834868328,
-            "y": -343.6420089351582,
+            "x": -384.8784974735688,
+            "y": -335.9772144616636,
             "file_references": [
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "data/example/model.dat"
+                    "path": "data/atlantis.txt"
                 }
             ],
             "db_references": []
@@ -397,16 +534,16 @@
         "Osemosys__data": {
             "type": "Data Store",
             "description": "",
-            "x": -138.6876868602409,
-            "y": -340.5105044065227,
+            "x": -41.80406501563209,
+            "y": -338.17713074664675,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
                 "port": "",
                 "database": {
                     "type": "path",
-                    "relative": true,
-                    "path": "osemosys_db.sqlite"
+                    "relative": false,
+                    "path": "c:/users/aetart/documents/osemosys-spinetoolbox/osemosys_db_atlantis.sqlite"
                 },
                 "schema": ""
             }
@@ -414,8 +551,8 @@
         "Osemosys_structure": {
             "type": "Data Connection",
             "description": "",
-            "x": -750.6331027371237,
-            "y": -34.59591161906149,
+            "x": -383.0991495006749,
+            "y": -39.80960124997483,
             "file_references": [
                 {
                     "type": "path",
@@ -428,8 +565,8 @@
         "Osemosys_settings": {
             "type": "Data Connection",
             "description": "",
-            "x": -748.547302650979,
-            "y": -170.4423617623075,
+            "x": -382.47251179513387,
+            "y": -176.33651390944783,
             "file_references": [
                 {
                     "type": "path",
@@ -442,8 +579,8 @@
         "Read_OSeMOSYS": {
             "type": "Tool",
             "description": "",
-            "x": -473.9748946494644,
-            "y": -343.4900936172904,
+            "x": -188.78656359880375,
+            "y": -338.3542739728148,
             "specification": "read_osemosys",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -457,7 +594,11 @@
                 },
                 {
                     "type": "resource",
-                    "arg": "<project>/data/example/model.dat"
+                    "arg": "<project>/mathprog_files/model.mod"
+                },
+                {
+                    "type": "resource",
+                    "arg": "<project>/data/atlantis.txt"
                 }
             ],
             "kill_completed_processes": false,
@@ -466,8 +607,8 @@
         "Write_OSeMOSYS": {
             "type": "Tool",
             "description": "",
-            "x": -88.27191825696151,
-            "y": -185.42070881138395,
+            "x": 8.181339914935492,
+            "y": -181.5104415881989,
             "specification": "write_osemosys",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -486,8 +627,8 @@
         "Run_OSeMOSYS": {
             "type": "Tool",
             "description": "",
-            "x": -37.16583897276966,
-            "y": -34.71979160546948,
+            "x": 59.28741919912734,
+            "y": -32.11294679001276,
             "specification": "run_osemosys",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -506,30 +647,56 @@
         "OSeMOSYS to ines": {
             "type": "Tool",
             "description": "",
-            "x": 36.373123569590526,
-            "y": -340.0096333679114,
+            "x": 183.37509319090395,
+            "y": -338.4679300508726,
             "specification": "OSeMOSYS to ines",
             "execute_in_work": true,
-            "cmd_line_args": [],
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@Osemosys__data"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@Ines db"
+                },
+                {
+                    "type": "resource",
+                    "arg": "C:\\Users\\aetart\\Documents\\ines-osemosys\\ines-osemosys\\settings.yaml"
+                },
+                {
+                    "type": "resource",
+                    "arg": "<project>/data/example/timeslices_to_time.csv"
+                }
+            ],
             "kill_completed_processes": false,
             "log_process_output": false
         },
         "ines_to_flextool": {
             "type": "Tool",
             "description": "",
-            "x": 343.17251367831057,
-            "y": -341.59107352311105,
+            "x": 491.64153806990254,
+            "y": -339.90309752313806,
             "specification": "ines_to_flextool",
-            "execute_in_work": true,
-            "cmd_line_args": [],
+            "execute_in_work": false,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@Ines db"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@FlexTool input db"
+                }
+            ],
             "kill_completed_processes": false,
             "log_process_output": false
         },
         "FlexTool3": {
             "type": "Tool",
             "description": "",
-            "x": 597.7843786654443,
-            "y": -343.17251367831057,
+            "x": 773.4029792790541,
+            "y": -342.31866426425114,
             "specification": "FlexTool3",
             "execute_in_work": true,
             "cmd_line_args": [],
@@ -539,8 +706,8 @@
         "Import_flex3": {
             "type": "Importer",
             "description": "",
-            "x": 547.1782936990571,
-            "y": -215.07586110714396,
+            "x": 772.7906481670504,
+            "y": -237.31188364512616,
             "specification": "Import_flex3",
             "cancel_on_error": false,
             "on_conflict": "merge",
@@ -554,8 +721,8 @@
         "Results_to_Excel": {
             "type": "Exporter",
             "description": "",
-            "x": 488.66500795667264,
-            "y": 1.5814401551996005,
+            "x": 768.9782730478915,
+            "y": -16.65835053421858,
             "output_time_stamps": false,
             "cancel_on_error": true,
             "output_labels": [
@@ -569,8 +736,8 @@
         "Ines db": {
             "type": "Data Store",
             "description": "",
-            "x": 202.42433986554724,
-            "y": -338.4281932127119,
+            "x": 349.4263094868609,
+            "y": -339.3748369471667,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -586,8 +753,8 @@
         "FlexTool input db": {
             "type": "Data Store",
             "description": "",
-            "x": 483.92068749107375,
-            "y": -344.7539538335102,
+            "x": 630.922657112387,
+            "y": -343.0659778335374,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -603,8 +770,8 @@
         "FlexTool results db": {
             "type": "Data Store",
             "description": "",
-            "x": 545.5968535438576,
-            "y": -105.95649039837235,
+            "x": 767.7138609319998,
+            "y": -124.69716585650332,
             "url": {
                 "dialect": "sqlite",
                 "host": "",
@@ -616,6 +783,54 @@
                 },
                 "schema": ""
             }
+        },
+        "Timeslices to time": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 184.29788216863085,
+            "y": -459.668466859137,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": true,
+                    "path": "data/example/timeslices_to_time.csv"
+                }
+            ],
+            "db_references": []
+        },
+        "Osemosys to ines settings": {
+            "type": "Data Connection",
+            "description": "",
+            "x": 185.9356612876512,
+            "y": -219.98962563504395,
+            "file_references": [
+                {
+                    "type": "path",
+                    "relative": false,
+                    "path": "C:/Users/aetart/Documents/ines-osemosys/ines-osemosys/settings.yaml"
+                }
+            ],
+            "db_references": []
+        },
+        "Osemosys_results_to_flextool": {
+            "type": "Tool",
+            "description": "",
+            "x": 455.90550072013025,
+            "y": -31.864362953557503,
+            "specification": "Osemosys_results_to_flextool",
+            "execute_in_work": false,
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "C:\\Users\\aetart\\Documents\\ines-osemosys\\ines-osemosys\\settings.yaml"
+                },
+                {
+                    "type": "resource",
+                    "arg": "db_url@FlexTool input db"
+                }
+            ],
+            "kill_completed_processes": false,
+            "log_process_output": false
         }
     }
 }

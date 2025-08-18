@@ -8,8 +8,8 @@ def run_osemosys(modelfile, infile, outfile):
     logger = logging.getLogger(__name__)
     directory = Path(__file__).parent
     glpsol_dir = directory / "glpsol_files"
-    highs_step1 = [str(glpsol_dir / "glpsol.exe"), '-m', str(directory / "mathprog_files" / modelfile), '-d',  str(directory / infile), '--cbg','-w', str(directory / outfile)]
-    completed = subprocess.run(highs_step1)
+    glpsol_cmd = [str(glpsol_dir / "glpsol.exe"), '-m', str(directory / "mathprog_files" / modelfile), '-d',  str(directory / infile), '--cbg','-w', str(directory / outfile)]
+    completed = subprocess.run(glpsol_cmd)
     if completed.returncode != 0:
         logger.error(f'{completed.returncode}')
         sys.exit(completed.returncode)
