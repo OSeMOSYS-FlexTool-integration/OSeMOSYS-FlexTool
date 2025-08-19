@@ -1,8 +1,11 @@
 import sys
 import yaml
+from pathlib import Path
 sys.path.insert(0, '.') #needed if using the zip toolbox
-import ines_tools_mathprog.read_mathprog_model_structure as structure
-import ines_tools_mathprog.write_mathprog_model_data as data
+sys.path.insert(0,str(Path(__file__).parent.parent / "ines-tools"/ "ines_tools"/ "tool_specific"/ "mathprog")) 
+from read_mathprog_model_structure import read_mathprog_structure
+from write_mathprog_model_data import write_mathprog_data
+
 from pathlib import Path
 
 if __name__ == "__main__":
@@ -16,12 +19,12 @@ if __name__ == "__main__":
     code_file_name = str(Path(__file__).parent / "mathprog_files" / settings["model_code"])
     param_dimens_file = str(Path(__file__).parent / "mathprog_files" / 'param_dimens.yaml')
 
-    structure.read_mathprog_structure(settings, url_db, code_file_name, param_dimens_file, write_to_db=False)
+    read_mathprog_structure(settings, url_db, code_file_name, param_dimens_file, write_to_db=False)
     print("Added model structure")
 
     with open(str(Path(__file__).parent / "mathprog_files" / 'param_dimens.yaml'), 'r') as yaml_file:
         param_listing = yaml.safe_load(yaml_file)
 
     with open(settings["new_model_name"], 'w+') as output_file:
-        data.write_mathprog_data(url_db, output_file, param_listing)
+        write_mathprog_data(url_db, output_file, param_listing)
     print("Added model data")

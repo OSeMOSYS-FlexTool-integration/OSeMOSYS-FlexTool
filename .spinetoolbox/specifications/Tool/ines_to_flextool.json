@@ -1,0 +1,13 @@
+{
+    "name": "ines_to_flextool",
+    "tooltype": "python",
+    "includes": [
+        "ines_to_flextool.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../../../ines-flextool/ines_flextool"
+}

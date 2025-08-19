@@ -1,0 +1,13 @@
+{
+    "name": "Osemosys_results_to_flextool",
+    "tooltype": "python",
+    "includes": [
+        "Osemosys_results_to_flextool.py"
+    ],
+    "description": "",
+    "inputfiles": [],
+    "inputfiles_opt": [],
+    "outputfiles": [],
+    "cmdline_args": [],
+    "includes_main_path": "../../.."
+}

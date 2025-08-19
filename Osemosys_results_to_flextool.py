@@ -1,12 +1,10 @@
 import sys
-import shutil
 from pathlib import Path
 import spinedb_api as api
 from collections import defaultdict
 from spinedb_api.exception import NothingToCommit
 from sqlalchemy.exc import DBAPIError
 from itertools import accumulate
-import os
 import csv
 import yaml
 
@@ -14,6 +12,8 @@ import yaml
 def main(flextool_input):
     current_dir = Path().parent
     result_files_path = current_dir / "results"
+    
+    #Unit capacities
     with api.DatabaseMapping(flextool_input) as target_db:
         target_db.add_alternative_item(name=default_alternative)
         one_unit_capacities = target_db.get_parameter_value_items(entity_class_name="unit", parameter_definition_name="virtual_unitsize")
@@ -52,6 +52,7 @@ def main(flextool_input):
             if error:
                 sys.exit("Could not capacities to flextool database: " + error)
         
+        #Storage capacities
         one_storage_capacities = target_db.get_parameter_value_items(entity_class_name="node", parameter_definition_name="virtual_unitsize")
         storage_capacity_results = defaultdict(list)
         with open(result_files_path / "NewStorageCapacity.csv", 'r') as result_file:
@@ -87,6 +88,17 @@ def main(flextool_input):
                                                      type=p_type)
             if error:
                 sys.exit("Could not capacities to flextool database: " + error)
+
+
+        #Remove invest_periods from input
+        invest_periods = target_db.get_parameter_value_items(entity_class_name="solve", parameter_definition_name="invest_periods")
+
+        for per in invest_periods:
+            target_db.remove_parameter_value(entity_class_name="solve", 
+                                                  parameter_definition_name="invest_periods", 
+                                                  entity_byname = per["entity_byname"],
+                                                  alternative_name = per["alternative_name"])
+
 
         try:
             target_db.commit_session("Added scenarios and alternatives")
