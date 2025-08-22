@@ -817,7 +817,7 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "timeslices_to_time_test.csv"
+                    "path": "data/example/timeslices_to_time.csv"
                 }
             ],
             "db_references": []
