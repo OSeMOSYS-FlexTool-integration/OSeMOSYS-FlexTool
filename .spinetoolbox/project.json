@@ -690,7 +690,7 @@
                 },
                 {
                     "type": "resource",
-                    "arg": "<project>/timeslices_to_time_test.csv"
+                    "arg": "<project>/data/example/timeslices_to_time.csv"
                 }
             ],
             "kill_completed_processes": false,
