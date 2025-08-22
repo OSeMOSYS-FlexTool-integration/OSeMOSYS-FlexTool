@@ -11,18 +11,19 @@ from pathlib import Path
 if __name__ == "__main__":
 
     if len(sys.argv) < 2:
-        exit("You need to provide the url of the source Spine database as an argument")
+        sys.exit("You need to provide the url of the source Spine database as the second argument")
     url_db = sys.argv[2]
     with open(sys.argv[1], 'r') as yaml_file:
         settings = yaml.safe_load(yaml_file)
-    
-    code_file_name = str(Path(__file__).parent / "mathprog_files" / settings["model_code"])
-    param_dimens_file = str(Path(__file__).parent / "mathprog_files" / 'param_dimens.yaml')
+    if len(sys.argv) < 3:
+        sys.exit("You need to provide the osemosys code as the third argument")
+    code_file_name = sys.argv[3]
+    param_dimens_file = str(Path(__file__).parent / 'param_dimens.yaml')
 
     read_mathprog_structure(settings, url_db, code_file_name, param_dimens_file, write_to_db=False)
     print("Added model structure")
 
-    with open(str(Path(__file__).parent / "mathprog_files" / 'param_dimens.yaml'), 'r') as yaml_file:
+    with open(param_dimens_file, 'r') as yaml_file:
         param_listing = yaml.safe_load(yaml_file)
 
     with open(settings["new_model_name"], 'w+') as output_file:

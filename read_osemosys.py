@@ -22,7 +22,7 @@ if __name__ == "__main__":
         code_file_name = sys.argv[3]
     if len(sys.argv) > 4:
         data_file_name = sys.argv[4]
-    param_dimens_file = str(Path(__file__).parent / "mathprog_files" / 'param_dimens.yaml')
+    param_dimens_file = str(Path(__file__).parent / 'param_dimens.yaml')
 
     read_mathprog_structure(settings, url_db, code_file_name, param_dimens_file)
     print("Added model structure")

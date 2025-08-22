@@ -331,7 +331,8 @@
                                 "base": true
                             },
                             "alternative_filter": {
-                                "base": true
+                                "base": true,
+                                "results_from_Osemosys": true
                             }
                         }
                     },
@@ -512,6 +513,25 @@
                         "scenario_filter": true
                     }
                 }
+            },
+            {
+                "name": "from Osemosys_structure to Write_OSeMOSYS",
+                "from": [
+                    "Osemosys_structure",
+                    "right"
+                ],
+                "to": [
+                    "Write_OSeMOSYS",
+                    "left"
+                ],
+                "filter_settings": {
+                    "known_filters": {},
+                    "auto_online": true,
+                    "enabled_filter_types": {
+                        "alternative_filter": false,
+                        "scenario_filter": true
+                    }
+                }
             }
         ],
         "jumps": []
@@ -534,7 +554,7 @@
         "Osemosys__data": {
             "type": "Data Store",
             "description": "",
-            "x": -41.80406501563209,
+            "x": -42.901972172941115,
             "y": -338.17713074664675,
             "url": {
                 "dialect": "sqlite",
@@ -542,8 +562,8 @@
                 "port": "",
                 "database": {
                     "type": "path",
-                    "relative": false,
-                    "path": "c:/users/aetart/documents/osemosys-spinetoolbox/osemosys_db_atlantis.sqlite"
+                    "relative": true,
+                    "path": "osemosys_db.sqlite"
                 },
                 "schema": ""
             }
@@ -566,7 +586,7 @@
             "type": "Data Connection",
             "description": "",
             "x": -382.47251179513387,
-            "y": -176.33651390944783,
+            "y": -178.53232822406588,
             "file_references": [
                 {
                     "type": "path",
@@ -619,6 +639,10 @@
                 {
                     "type": "resource",
                     "arg": "db_url@Osemosys__data"
+                },
+                {
+                    "type": "resource",
+                    "arg": "<project>/mathprog_files/model.mod"
                 }
             ],
             "kill_completed_processes": false,
@@ -647,10 +671,10 @@
         "OSeMOSYS to ines": {
             "type": "Tool",
             "description": "",
-            "x": 183.37509319090395,
-            "y": -338.4679300508726,
+            "x": 183.37509319090393,
+            "y": -339.9516166294998,
             "specification": "OSeMOSYS to ines",
-            "execute_in_work": true,
+            "execute_in_work": false,
             "cmd_line_args": [
                 {
                     "type": "resource",
@@ -666,7 +690,7 @@
                 },
                 {
                     "type": "resource",
-                    "arg": "<project>/data/example/timeslices_to_time.csv"
+                    "arg": "<project>/timeslices_to_time_test.csv"
                 }
             ],
             "kill_completed_processes": false,
@@ -793,7 +817,7 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "data/example/timeslices_to_time.csv"
+                    "path": "timeslices_to_time_test.csv"
                 }
             ],
             "db_references": []
