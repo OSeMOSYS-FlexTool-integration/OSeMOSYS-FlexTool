@@ -39,7 +39,7 @@ def main(flextool_input):
                 print(f"Unit {unit_name} not found in database, skipping.")
                 continue
             periods = [str(x[0]) for x in values]
-            values = [round(float(x[1]) / unit_capacity * capacity_unit_ratio, 4) for x in values]
+            values = [round(float(x[1]) / unit_capacity * capacity_unit_factor, 4) for x in values]
             timeblocks_map = api.Map(indexes=periods, values = values, index_name="period")
             p_value, p_type = api.to_database(timeblocks_map)
             added, updated, error = target_db.add_update_item("parameter_value", 
@@ -76,7 +76,7 @@ def main(flextool_input):
                 continue
             periods = [str(x[0]) for x in values]
             accumulated_storage_capacity = list(accumulate(values))
-            values = [round(float(x[1]) / storage_capacity * storage_unit_ratio, 4) for x in accumulated_storage_capacity]
+            values = [round(float(x[1]) / storage_capacity * storage_unit_factor, 4) for x in accumulated_storage_capacity]
             timeblocks_map = api.Map(indexes=periods, values = values, index_name="period")
             p_value, p_type = api.to_database(timeblocks_map)
             added, updated, error = target_db.add_update_item("parameter_value", 
@@ -117,9 +117,9 @@ if __name__ == "__main__":
     
     default_unit_size = float(settings["default_unit_size"])
 
-    capacity_unit_ratio = float(settings["capacity_unit_to_MW_ratio"])
-    storage_unit_ratio = float(settings["storage_capacity_unit_to_MWh_ratio"])
-    demand_unit_ratio = float(settings["demand_unit_to_MWh_ratio"])
-    investment_unit_ratio = float(settings["investment_unit_to_CUR/MW_ratio"])
+    capacity_unit_factor = float(settings["capacity_unit_to_MW_factor"])
+    storage_unit_factor = float(settings["storage_capacity_unit_to_MWh_factor"])
+    demand_unit_factor = float(settings["demand_unit_to_MWh_factor"])
+    investment_unit_factor = float(settings["investment_unit_to_CUR/MW_factor"])
     alternative_name = "Osemosys_results"
     main(flextool_input)
