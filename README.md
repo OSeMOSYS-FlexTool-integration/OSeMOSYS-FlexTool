@@ -97,3 +97,19 @@ The demand is presented in the flextool as 'scale_to_annual_flow'. This means th
 
 The VRE-profile instead needs to be a fractional (0-1) of the capacity. The transformation will create a profile, but this made by using the timeslice value corresponding to the timestep. Using these is not advisable as they are averages, and would create too optimistic view of the flexibility of the system.  
 
+# Missing conversions from OSeMOSYS data to ines-spec (these are ignored at the moment)
+The large concepts missing are mode of operation and reserves. The transformation will only take the first of the modes of operation. INES does not have representation of two separate points of efficiency curve and costs.
+Reserves are completely missing. The reason is that the reserve formulation in OSeMOSYS is too broad and with too many options for the user. This prevents the automatic transformation.
+
+Below is a list of parameters that are not transferred:
+
+- REGION
+  - ReserveMargin
+  - DepreciationMethod
+- REGION__FUEL
+  - ReserveMarginTagFuel
+- REGION__TECHNOLOGY
+  - AvailabilityFactor  (In OSeMOSYS this is annual value, while CapacityFactor is also for timeslices - we only take CapacityFactor at the moment)
+  - ReserveMarginTagTechnology
+- REGION__REGION__FUEL:
+  - TradeRoute

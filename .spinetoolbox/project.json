@@ -546,7 +546,7 @@
                 {
                     "type": "path",
                     "relative": true,
-                    "path": "data/atlantis.txt"
+                    "path": "data/example/model.dat"
                 }
             ],
             "db_references": []
@@ -618,7 +618,7 @@
                 },
                 {
                     "type": "resource",
-                    "arg": "<project>/data/atlantis.txt"
+                    "arg": "<project>/data/example/model.dat"
                 }
             ],
             "kill_completed_processes": false,
@@ -627,8 +627,8 @@
         "Write_OSeMOSYS": {
             "type": "Tool",
             "description": "",
-            "x": 8.181339914935492,
-            "y": -181.5104415881989,
+            "x": 9.246486529659439,
+            "y": -181.51044158819892,
             "specification": "write_osemosys",
             "execute_in_work": false,
             "cmd_line_args": [
@@ -719,11 +719,16 @@
         "FlexTool3": {
             "type": "Tool",
             "description": "",
-            "x": 773.4029792790541,
-            "y": -342.31866426425114,
+            "x": 773.402979279054,
+            "y": -340.1883710348033,
             "specification": "FlexTool3",
             "execute_in_work": true,
-            "cmd_line_args": [],
+            "cmd_line_args": [
+                {
+                    "type": "resource",
+                    "arg": "db_url@FlexTool input db"
+                }
+            ],
             "kill_completed_processes": false,
             "log_process_output": false
         },
