@@ -24,18 +24,18 @@
                 },
                 {
                     "type": "path",
-                    "relative": false,
-                    "path": "C:/Users/aetart/Documents/ines-osemosys/.spinetoolbox/specifications/Tool/osemosys_to_ines.json"
+                    "relative": true,
+                    "path": "../ines-osemosys/.spinetoolbox/specifications/Tool/osemosys_to_ines.json"
                 },
                 {
                     "type": "path",
-                    "relative": false,
-                    "path": "C:/Users/aetart/Documents/ines-flextool/.spinetoolbox/specifications/Tool/ines_to_flextool.json"
+                    "relative": true,
+                    "path": "../ines-flextool/.spinetoolbox/specifications/Tool/ines_to_flextool.json"
                 },
                 {
                     "type": "path",
-                    "relative": false,
-                    "path": "C:/Users/aetart/Documents/flextool/.spinetoolbox/specifications/Tool/flextool3.json"
+                    "relative": true,
+                    "path": "../flextool/.spinetoolbox/specifications/Tool/flextool3.json"
                 },
                 {
                     "type": "path",
@@ -46,15 +46,15 @@
             "Importer": [
                 {
                     "type": "path",
-                    "relative": false,
-                    "path": "C:/Users/aetart/Documents/flextool/.spinetoolbox/specifications/Importer/import_flex3.json"
+                    "relative": true,
+                    "path": "../flextool/.spinetoolbox/specifications/Importer/import_flex3.json"
                 }
             ],
             "Exporter": [
                 {
                     "type": "path",
-                    "relative": false,
-                    "path": "C:/Users/aetart/Documents/flextool/.spinetoolbox/specifications/Exporter/results_to_excel.json"
+                    "relative": true,
+                    "path": "../flextool/.spinetoolbox/specifications/Exporter/results_to_excel.json"
                 }
             ]
         },
