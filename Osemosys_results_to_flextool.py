@@ -16,6 +16,17 @@ def main(flextool_input):
     #Unit capacities
     with api.DatabaseMapping(flextool_input) as target_db:
         target_db.add_alternative_item(name=default_alternative)
+        # Add the new alternative to all scenarios
+        scenarios = target_db.get_scenario_items()
+        scen_alts = target_db.get_scenario_alternative_items()
+        for scenario in scenarios:
+            rank = 0
+            for scen_alt in scen_alts:
+                if scen_alt["scenario_name"] == scenario["name"]:
+                    if scen_alt["rank"] >= rank:
+                        rank = scen_alt["rank"] + 1
+            target_db.add_scenario_alternative_item(alternative_name=default_alternative, scenario_name=scenario["name"], rank=rank)
+
         one_unit_capacities = target_db.get_parameter_value_items(entity_class_name="unit", parameter_definition_name="virtual_unitsize")
         
         capacity = defaultdict(list)
@@ -98,7 +109,6 @@ def main(flextool_input):
                                                   parameter_definition_name="invest_periods", 
                                                   entity_byname = per["entity_byname"],
                                                   alternative_name = per["alternative_name"])
-
 
         try:
             target_db.commit_session("Added scenarios and alternatives")

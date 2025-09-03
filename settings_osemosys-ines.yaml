@@ -10,10 +10,10 @@ default_interest_rate: 0.07 # if not specified in the OSeMOSYS data
 #Some are presented as annual values in OSEMOSYS. factor to power and factor to hour are both included here.
 capacity_unit_to_MW_factor: 1000
 storage_capacity_unit_to_MWh_factor: 8.76
-demand_unit_to_MWh_factor: 31536
+demand_unit_to_MWh_factor: 277777 
 investment_unit_to_CUR/MW_factor: 1000
 storage_investment_unit_to_CUR/MWh_factor: 1000
-variable_cost_unit_to_CUR/MW_factor: 1000
+variable_cost_unit_to_CUR/MW_factor: 3.6
 
 
 # For example if the units in OSEMOSYS are: 
@@ -26,7 +26,7 @@ variable_cost_unit_to_CUR/MW_factor: 1000
 # Then the factors are:
 #capacity_unit_to_MW_factor: 1000
 #storage_capacity_unit_to_MWh_factor: 8.76
-#demand_unit_to_MWh_factor: 31536
+#demand_unit_to_MWh_factor: 277777
 #investment_unit_to_CUR/MW_factor: 1000
 #storage_investment_unit_to_CUR/MWh_factor: 1000
-#variable_cost_unit_to_CUR/MW_factor: 1000
+#variable_cost_unit_to_CUR/MW_factor: 3.6
