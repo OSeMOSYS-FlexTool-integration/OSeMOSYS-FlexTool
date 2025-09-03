@@ -20,7 +20,13 @@ Functional, but not completely tested.
 
 ## Installation with zip-files
 
-Coming soon!
+Get the following zip-files and extract them in the same folder:
+- Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/actions/runs/17399378342/artifacts/3904571984
+- FlexTool: https://github.com/irena-flextool/flextool/archive/refs/tags/v3.14.0.zip
+- The rest are in the zip-file of this repository: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/blob/main/OSeMOSYS-FlexTool-integration.zip
+
+You can open the spine-toolbox from the executable file under the spine-toolbox folder.
+ 
 
 ## Installation with git
 Git clone this repository.
@@ -42,6 +48,12 @@ http://www.osemosys.org/interfaces.html
 
 # Use
 
+Open the OSeMOSYS-FlexTool project.
+![open_project](./docs/open_project.png)
+
+Choose the OSeMOSYS-FlexTool folder
+![choose_project](./docs/choose_project.png)
+
 This workflow assumes that the user has a functioning OSeMOSYS model. More specifically the text file input that is passed to the OSeMOSYS for solving. The path to this file needs to be added to the OSeMOSYS_data dataconnection.
 
 1. Click `Osemosys_data`. Add file path by clicking the green plus symbol. Find your input file.
@@ -53,6 +65,29 @@ This workflow assumes that the user has a functioning OSeMOSYS model. More speci
     ![drag_file](./docs/drag_file.png)
 3. Run `Read_OSeMOSYS`.
     ![run_read](./docs/run_read_osemosys.png)
+4. Before running `OSeMOSYS to Ines` one might need to modify `Timeslices to Time` or `OSeMOSYS to ines settings`. You can open them by double clicking the file path or just searching them from the folder.
+    + `Timeslices to Time` contains the timeline to be created an the timeslice corresponding to each timestep. An example full year csv-file comes with this repository.
+    + `OSeMOSYS to ines settings`  contains generic data settings for the transformation.
+        + Default values for the data that does not exist. Like default unitsize and unlimited_unit_capacity.
+        + Unit conversion factors. The OSeMOSYS supports free units, but for the Ines and FlexTool these are fixed. Check what units you are using and if you need to change the factors
+5. Run `OSeMOSYS to Ines` and `ines_to_flextool`. You can check how the ines data looks like, but you won't need it. Now you should have transformed the OSeMOSYS model to FlexTool. 
+
+6. Add timeseries. As a timeslice model OSeMOSYS does not include timeseries, but they are essential for flexiblity considerations. At this point you should familiarize yourself with the use of the FlexTool. https://irena-flextool.github.io/flextool/tutorial/
+The timeseries you should add are:
+    + Demand: The parameter is node -- `inflow`
+    + VRE production profiles: profile -- `profile` 
+    + Other parameters can also have timeseries values, but these are the minimum required to perfrom flexibility analysis
+
+Next we will replace the initial capacities with the results of the OSeMOSYS. To do this:
+
+7. Run `Write_OSeMOSYS`. This creates a new osemosys input file. The filename can be changed from the osemosys settings.
+8. Run `Run_OSeMOSYS`.
+9. Run `OSeMOSYS_results_to_flextool`. This replaces the capacity values in the flextool input database with the results.
+10. Now you are ready to run `Flextool3` and `Import_flex3`. These will create the flextool results to `FlexTool results db`
+11. You can look at the results from the database directly or export them to excel format.
+12. If the results include upward penalties, the system requires more production capacity.
+
+
 4. (OPTIONAL) The `Osemosys__data` database should now contain your data. You can create new scenarios by:
 
     + Create a new alternative
@@ -69,27 +104,6 @@ This workflow assumes that the user has a functioning OSeMOSYS model. More speci
 6. (OPTIONAL) Choose the new scenario from the filter selection. Running multiple scenarios at the same time is currently not supported.
 
     ![Filter](./docs/filter.png)
-7. Before running `OSeMOSYS to Ines` one might need to modify `Timeslices to Time` or `OSeMOSYS to ines settings`. You can open them by double clicking the file path or just searching them from the folder.
-    + `Timeslices to Time` contains the timeline to be created an the timeslice corresponding to each timestep. An example full year csv-file comes with this repository.
-    + `OSeMOSYS to ines settings`  contains generic data settings for the transformation.
-        + Default values for the data that does not exist. Like default unitsize and unlimited_unit_capacity.
-        + Unit conversion factors. The OSeMOSYS supports free units, but for the Ines and FlexTool these are fixed. Check what units you are using and if you need to change the factors
-8. Run `OSeMOSYS to Ines` and `ines_to_flextool`. You can check how the ines data looks like, but you won't need it. Now you should have transformed the OSeMOSYS model to FlexTool. 
-
-9. Add timeseries. As a timeslice model OSeMOSYS does not include timeseries, but they are essential for flexiblity considerations. At this point you should familiarize yourself with the use of the FlexTool. https://irena-flextool.github.io/flextool/tutorial/
-The timeseries you should add are:
-    + Demand: The parameter is node -- `inflow`
-    + VRE production profiles: profile -- `profile` 
-    + Other parameters can also have timeseries values, but these are the minimum required to perfrom flexibility analysis
-
-Next we will replace the initial capacities with the results of the OSeMOSYS. To do this:
-
-7. Run `Write_OSeMOSYS`. This creates a new osemosys input file. The filename can be changed from the osemosys settings.
-8. Run `Run_OSeMOSYS`.
-9. Run `OSeMOSYS_results_to_flextool`. This replaces the capacity values in the flextool input database with the results.
-10. Now you are ready to run `Flextool3` and `Import_flex3`. These will create the flextool results to `FlexTool results db`
-11. You can look at the results from the database directly or export them to excel format.
-12. If the results include upward penalties, the system requires more production capacity.
 
 # On timeseries 
 
