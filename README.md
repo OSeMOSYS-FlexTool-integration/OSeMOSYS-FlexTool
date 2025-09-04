@@ -13,6 +13,8 @@ This workflow uses Spine-Toolbox for the database and workflow management (https
 For running the OSeMOSYS separately in Spine Toolbox go to: 
 https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-SpineToolbox
 
+The repository includes a copy of the OSeMOSYS code and glpsol for running OSeMOSYS. They are in the folders mathprog_files and glpsol_files respectively. For both, their original licences apply and are provided in their folders.
+
 # Status
 
 Functional, but not completely tested.
