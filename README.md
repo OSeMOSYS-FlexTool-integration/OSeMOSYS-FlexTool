@@ -31,6 +31,8 @@ The folder contents should look like:
 
 ![folder_contents](./docs/folder_contents.png)
 
+You should have also an editor to produce OSeMOSYS inputfiles, get one you like to use:
+http://www.osemosys.org/interfaces.html
 
 You can open the spine-toolbox from the executable file under the spine-toolbox folder.
  
@@ -86,11 +88,12 @@ This workflow assumes that the user has a functioning OSeMOSYS model. More speci
         + Unit conversion factors. The OSeMOSYS supports free units, but for the Ines and FlexTool these are fixed. Check what units you are using and if you need to change the factors.
 5. Run `OSeMOSYS to Ines` and `ines_to_flextool`. You can check how the INES data looks like, but you won't need it. Now you should have transformed the OSeMOSYS model to FlexTool. 
 
-6. Add timeseries. As a timeslice model, OSeMOSYS does not include timeseries, but they are essential for flexiblity considerations. At this point you should familiarize yourself with the use of the FlexTool. https://irena-flextool.github.io/flextool/tutorial/
-The timeseries you should add are:
+6. Add timeseries. As a timeslice model, OSeMOSYS does not include timeseries, but they are essential for flexiblity considerations. Some parameters should be given timeseries values. The transformation already created the timeseries in correct format, but the values are just the timeslice value repeated for each timestep. The timeseries you should add are:
     + Demand: The parameter is node -- `inflow`
     + VRE production profiles: profile -- `profile` 
     + Other parameters can also have timeseries values, but these are the minimum required to perfrom flexibility analysis
+
+At this point you should familiarize yourself with the use of the FlexTool: https://irena-flextool.github.io/flextool/tutorial/ . Note that you have installed the FlexTool already, so if you want its standalone workflow for the tutorial. Just open the FlexTool folder as spinetoolbox project.
 
 Next we will replace the initial capacities with the results of the OSeMOSYS. To do this:
 
@@ -120,7 +123,7 @@ Next we will replace the initial capacities with the results of the OSeMOSYS. To
 
 # On timeseries 
 
-The demand is presented in the flextool as 'scale_to_annual_flow'. This means that the 'inflow' timeseries only describes the profile of the demand. This is then scaled so than the annul sum of demand matches the 'annual_flow' parameter. This is transformed from the OSeMOSYS data. In practice, this means that the inflow parameter can be a fraction profile or a real demand timeseries of one year.
+The demand is presented in the flextool as 'scale_to_annual_flow'. This means that the 'inflow' timeseries only describes the profile of the demand. This is then scaled so than the annual sum of demand matches the 'annual_flow' parameter. It is transformed from the OSeMOSYS data. In practice, this means that the inflow parameter can be a fraction profile or a real demand timeseries of one year.
 
 The VRE-profile instead needs to be a fractional (0-1) of the capacity. The transformation will create a profile, but this made by using the timeslice value corresponding to the timestep. Using these is not advisable as they are averages, and would create too optimistic view of the flexibility of the system.  
 
