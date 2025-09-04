@@ -21,9 +21,9 @@ Functional, but not completely tested.
 ## Installation with zip-files
 
 Get the following zip-files and extract them in the same folder:
-- Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/actions/runs/17399378342/artifacts/3904571984
+- Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/actions/runs/17399378342/artifacts/3904571984 This is a development snapshot that requires a Github account to access. It will be soon replaced by a proper release of the software, which won't require anything.
 - FlexTool: https://github.com/irena-flextool/flextool/archive/refs/tags/v3.14.0.zip
-- The rest are in the zip-file of this repository: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/blob/main/OSeMOSYS-FlexTool-integration.zip
+- The rest are in the zip-file located in this repository: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/blob/main/OSeMOSYS-FlexTool-integration.zip
 
 You can open the spine-toolbox from the executable file under the spine-toolbox folder.
  
@@ -48,13 +48,15 @@ http://www.osemosys.org/interfaces.html
 
 # Use
 
+The workflow is used through Spine-Toolbox, open it. If you are using zip-installation, you should see spinetoolbox.exe under the Spine-Toolbox folder.
+
 Open the OSeMOSYS-FlexTool project.
 ![open_project](./docs/open_project.png)
 
 Choose the OSeMOSYS-FlexTool folder
 ![choose_project](./docs/choose_project.png)
 
-This workflow assumes that the user has a functioning OSeMOSYS model. More specifically the text file input that is passed to the OSeMOSYS for solving. The path to this file needs to be added to the OSeMOSYS_data dataconnection.
+This workflow assumes that the user has a functioning OSeMOSYS model. More specifically, the text file input that is passed to the OSeMOSYS for solving. The path to this file needs to be added to the OSeMOSYS_data dataconnection.
 
 1. Click `Osemosys_data`. Add file path by clicking the green plus symbol. Find your input file.
 
@@ -88,7 +90,7 @@ Next we will replace the initial capacities with the results of the OSeMOSYS. To
 12. If the results include upward penalties, the system requires more production capacity.
 
 
-4. (OPTIONAL) The `Osemosys__data` database should now contain your data. You can create new scenarios by:
+13. (OPTIONAL) The `Osemosys__data` database contains your osemosys data in database format. You can use the database editor for creating scenarios and data differentiating them. You can do it by:
 
     + Create a new alternative
     + Create a new scenario
@@ -101,7 +103,7 @@ Next we will replace the initial capacities with the results of the OSeMOSYS. To
     ![new data](./docs/new_data.png)
 
     +  Commit changes
-6. (OPTIONAL) Choose the new scenario from the filter selection. Running multiple scenarios at the same time is currently not supported.
+14. (OPTIONAL) Choose the new scenario from the filter selection. Running multiple scenarios at the same time is currently not supported.
 
     ![Filter](./docs/filter.png)
 
