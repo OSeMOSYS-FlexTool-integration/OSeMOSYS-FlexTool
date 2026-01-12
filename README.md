@@ -23,11 +23,10 @@ Functional, but not completely tested.
 
 ## Installation with zip-files
 
-Get the following zip-files and extract them to the same folder:
+Get the following two zip-files and extract them:
 
 - Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/releases/download/0.10.2/Spine-Toolbox-win-0.10.2.zip
-- FlexTool: https://github.com/irena-flextool/flextool/archive/refs/tags/v3.14.0.zip
-- The rest are in the zip-file located in the release: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/v0.1.0/OSeMOSYS-FlexTool.zip
+- The rest: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/v.0.2.0/OSeMOSYS-FlexTool.zip
 
 The folder contents should look like:
 
