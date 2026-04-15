@@ -144,3 +144,7 @@ Below is a list of parameters that are not transferred:
   - ReserveMarginTagTechnology
 - REGION__REGION__FUEL:
   - TradeRoute
+
+
+
+This work has been supported by EU Horizon project RE-INTEGRATE N°101118217.
