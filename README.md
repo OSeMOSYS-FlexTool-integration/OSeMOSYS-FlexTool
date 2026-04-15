@@ -146,5 +146,11 @@ Below is a list of parameters that are not transferred:
   - TradeRoute
 
 
-
-This work has been supported by EU Horizon project RE-INTEGRATE N°101118217.
+&nbsp;
+<hr>
+<table width=500px frame="none">
+<tr>
+<td valign="middle" width=100px>
+<img src=docs/eu-emblem-low-res.jpg alt="EU emblem" width=100%>
+<td valign="middle">This work has been supported by EU Horizon project RE-INTEGRATE N°101118217.</td>
+<tr>
