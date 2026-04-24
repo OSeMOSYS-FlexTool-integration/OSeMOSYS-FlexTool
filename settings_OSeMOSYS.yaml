@@ -1,3 +1,5 @@
+otoole_format: 
+  False  # If True, the OSeMOSYS model file is in otoole format
 model_code:
   model.mod  # OSeMOSYS model file (written in MathProg)
 new_model_name:
