@@ -1,6 +1,6 @@
 AccumulatedAnnualDemand:
 - - REGION
-  - FUEL
+  - COMMODITY
 - - YEAR
 - - 0
   - 1
@@ -62,58 +62,10 @@ CapitalCostStorage:
 - - 0
   - 1
   - 2
-Conversionld:
-- - model
-- - TIMESLICE
-  - DAYTYPE
-- - 1
-  - 2
-Conversionlh:
-- - model
-- - TIMESLICE
-  - DAILYTIMEBRACKET
-- - 1
-  - 2
-Conversionls:
-- - model
-- - TIMESLICE
-  - SEASON
-- - 1
-  - 2
-DaySplit:
-- - model
-- - DAILYTIMEBRACKET
-  - YEAR
-- - 1
-  - 2
-DaysInDayType:
-- - model
-- - SEASON
-  - DAYTYPE
-  - YEAR
-- - 1
-  - 2
-  - 3
-DepreciationMethod:
-- - REGION
-- []
-- - 0
 DiscountRate:
 - - REGION
 - []
 - - 0
-DiscountRateIdv:
-- - REGION
-  - TECHNOLOGY
-- []
-- - 0
-  - 1
-DiscountRateStorage:
-- - REGION
-  - STORAGE
-- []
-- - 0
-  - 1
 EmissionActivityRatio:
 - - REGION
   - TECHNOLOGY
@@ -142,7 +94,7 @@ FixedCost:
 InputActivityRatio:
 - - REGION
   - TECHNOLOGY
-  - FUEL
+  - COMMODITY
 - - MODE_OF_OPERATION
   - YEAR
 - - 0
@@ -150,13 +102,24 @@ InputActivityRatio:
   - 2
   - 3
   - 4
-MinStorageCharge:
+InputToNewCapacityRatio:
 - - REGION
-  - STORAGE
+  - TECHNOLOGY
+  - COMMODITY
 - - YEAR
 - - 0
   - 1
   - 2
+  - 3
+InputToTotalCapacityRatio:
+- - REGION
+  - TECHNOLOGY
+  - COMMODITY
+- - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
 ModelPeriodEmissionLimit:
 - - REGION
   - EMISSION
@@ -184,7 +147,7 @@ OperationalLifeStorage:
 OutputActivityRatio:
 - - REGION
   - TECHNOLOGY
-  - FUEL
+  - COMMODITY
 - - MODE_OF_OPERATION
   - YEAR
 - - 0
@@ -199,7 +162,7 @@ REMinProductionTarget:
   - 1
 RETagFuel:
 - - REGION
-  - FUEL
+  - COMMODITY
 - - YEAR
 - - 0
   - 1
@@ -218,7 +181,7 @@ ReserveMargin:
   - 1
 ReserveMarginTagFuel:
 - - REGION
-  - FUEL
+  - COMMODITY
 - - YEAR
 - - 0
   - 1
@@ -237,65 +200,58 @@ ResidualCapacity:
 - - 0
   - 1
   - 2
-ResidualStorageCapacity:
-- - REGION
-  - STORAGE
-- - YEAR
-- - 0
-  - 1
-  - 2
 ResultsPath:
 - - model
 - []
 - []
 SpecifiedAnnualDemand:
 - - REGION
-  - FUEL
+  - COMMODITY
 - - YEAR
 - - 0
   - 1
   - 2
 SpecifiedDemandProfile:
 - - REGION
-  - FUEL
+  - COMMODITY
 - - TIMESLICE
   - YEAR
 - - 0
   - 1
   - 2
   - 3
-StorageLevelStart:
-- - REGION
-  - STORAGE
-- []
-- - 0
-  - 1
-StorageMaxChargeRate:
-- - REGION
-  - STORAGE
-- []
-- - 0
-  - 1
-StorageMaxDischargeRate:
-- - REGION
-  - STORAGE
-- []
-- - 0
-  - 1
-TechnologyFromStorage:
+TechnologyActivityByModeLowerLimit:
 - - REGION
   - TECHNOLOGY
-  - STORAGE
 - - MODE_OF_OPERATION
+  - YEAR
 - - 0
   - 1
   - 2
   - 3
-TechnologyToStorage:
+TechnologyActivityByModeUpperLimit:
 - - REGION
   - TECHNOLOGY
-  - STORAGE
 - - MODE_OF_OPERATION
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+TechnologyActivityDecreaseByModeLimit:
+- - REGION
+  - TECHNOLOGY
+- - MODE_OF_OPERATION
+  - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+TechnologyActivityIncreaseByModeLimit:
+- - REGION
+  - TECHNOLOGY
+- - MODE_OF_OPERATION
+  - YEAR
 - - 0
   - 1
   - 2
@@ -357,12 +313,52 @@ TotalTechnologyModelPeriodActivityUpperLimit:
 TradeRoute:
 - - REGION
   - REGION
-  - FUEL
+  - COMMODITY
 - - YEAR
 - - 0
   - 1
   - 2
   - 3
+UDCConstant:
+- - REGION
+  - UDC
+- - YEAR
+- - 0
+  - 1
+  - 2
+UDCMultiplierActivity:
+- - REGION
+  - TECHNOLOGY
+  - UDC
+- - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+UDCMultiplierNewCapacity:
+- - REGION
+  - TECHNOLOGY
+  - UDC
+- - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+UDCMultiplierTotalCapacity:
+- - REGION
+  - TECHNOLOGY
+  - UDC
+- - YEAR
+- - 0
+  - 1
+  - 2
+  - 3
+UDCTag:
+- - REGION
+  - UDC
+- []
+- - 0
+  - 1
 VariableCost:
 - - REGION
   - TECHNOLOGY

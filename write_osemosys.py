@@ -27,5 +27,5 @@ if __name__ == "__main__":
         param_listing = yaml.safe_load(yaml_file)
 
     with open(settings["new_model_name"], 'w+') as output_file:
-        write_mathprog_data(url_db, output_file, param_listing)
+        write_mathprog_data(url_db, output_file, param_listing, settings)
     print("Added model data")
