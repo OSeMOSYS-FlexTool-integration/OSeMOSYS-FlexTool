@@ -25,8 +25,8 @@ Functional, but not completely tested.
 
 Get the following two zip-files and extract them:
 
-- Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/releases/download/0.10.4/Spine-Toolbox-win-0.10.4.zip
-- The rest: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/0.2.1/OSeMOYS-FlexTool.zip
+- Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/releases/download/0.10.7/Spine-Toolbox-win-0.10.7.zip
+- The rest: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/0.2.2/OSeMOSYS-FlexTool.zip
 
 The folder contents should look like:
 
@@ -69,6 +69,8 @@ Choose the OSeMOSYS-FlexTool folder.
 ![choose_project](./docs/choose_project.png)
 
 This workflow assumes that the user has a functioning OSeMOSYS model. More specifically, the text file input that is passed to the OSeMOSYS for solving. The path to this file needs to be added to the OSeMOSYS_data dataconnection.
+
+0. If your Osemosys input file is in a otoole format. You can see it from the first row of the file. Click `OSeMOSYS-settings`. Double click the file path shown. Replace the False under the header 'otoole-format' to True.
 
 1. Click `Osemosys_data`. Add file path by clicking the green plus symbol. Find your input file.
 
