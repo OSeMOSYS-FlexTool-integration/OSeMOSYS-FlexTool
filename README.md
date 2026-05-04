@@ -26,7 +26,7 @@ Functional, but not completely tested.
 Get the following two zip-files and extract them:
 
 - Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/releases/download/0.10.7/Spine-Toolbox-win-0.10.7.zip
-- The rest: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/0.2.2/OSeMOSYS-FlexTool.zip
+- The rest: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/0.2.3/OSeMOSYS-FlexTool.zip
 
 The folder contents should look like:
 
