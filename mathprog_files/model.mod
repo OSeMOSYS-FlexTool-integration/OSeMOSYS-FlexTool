@@ -75,7 +75,7 @@ param CapitalRecoveryFactor{r in REGION, t in TECHNOLOGY} :=
 param PvAnnuity{r in REGION, t in TECHNOLOGY} :=
 	(1 - (1 + DiscountRate[r])^(-(OperationalLife[r,t]))) * (1 + DiscountRate[r]) / DiscountRate[r];
 
-param DiscountRateStorage{r in REGION, s in STORAGE};
+param DiscountRateStorage{r in REGION, s in STORAGE}, default DiscountRate[r];
 param DiscountFactorStorage{r in REGION, s in STORAGE, y in YEAR} :=
 	(1 + DiscountRateStorage[r, s]) ^ (y - min{yy in YEAR} min(yy) + 0.0);
 param DiscountFactorMidStorage{r in REGION, s in STORAGE, y in YEAR} :=
