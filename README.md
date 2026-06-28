@@ -26,7 +26,7 @@ Functional, but not completely tested.
 Get the following two zip-files and extract them:
 
 - Spine-Toolbox: https://github.com/spine-tools/Spine-Toolbox/releases/download/0.10.7/Spine-Toolbox-win-0.10.7.zip
-- The rest: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/0.2.4/OSeMOSYS-FlexTool.zip
+- The rest: https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-FlexTool/releases/download/0.2.7/OSeMOSYS-FlexTool.zip
 
 The folder contents should look like:
 
@@ -101,7 +101,7 @@ At this point you should familiarize yourself with the use of the FlexTool: http
 Next we will replace the initial capacities with the results of the OSeMOSYS. To do this:
 
 7. Run `Write_OSeMOSYS`. This creates a new osemosys input file. The filename can be changed from the osemosys settings.
-8. Run `Run_OSeMOSYS`.
+8. Run `Run_OSeMOSYS`. If this crashes, the most likely situation is that you are using a different version of osemosys and there is a conflict with the input data. However, this can be fixed by changing the osemosys model with the one you are using outside this integration. As with the 1. and 2. sections remove and replace the file in Osemosys_structure.
 9. Run `OSeMOSYS_results_to_flextool`. This replaces the capacity values in the flextool input database with the results.
 10. Now you are ready to run `Flextool3` and `Import_flex3`. These will create the flextool results to `FlexTool results db`
 11. You can look at the results from the database directly or export them to excel format.
