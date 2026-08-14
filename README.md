@@ -1,11 +1,15 @@
 # OSeMOSYS-Flextool
 ## Integrating OSeMOSYS and IRENA FlexTool energy system models
 
-The objective of this workflow is to provide an easy way to pass data between OSeMOSYS and IRENA FlexTool. This allows the testing of the flexibility of the system in IRENA FlexTool that the OSeMOSYS capacity expansion model has created.
+This is an automated workflow combining two energy system modelling tools OSeMOSYS and IRENA FlexTool. OSeMOSYS is a capacity expansion model and it is combined here with IRENA FlexTool that can be used to test flexibility of the energy system produced by OSeMOSYS. This is necessary as OSeMOSYS as a timeslice model does not take into consideration the whole timeline when making investment decisions and therefore system adequacy cannot be 
+guaranteed with the historical weather years.
 
-The workflow includes transforming a OSeMOSYS model to FlexTool through INES specification (https://github.com/ines-tools/ines-spec), running OSeMOSYS as capacity expansion model, passing these results to FlexTool and running FlexTool
+The workflow creates the Flextool input data based on the given OSeMOSYS data, so that two model do not need to be created by hand. The exeption is the timeseries and other flexibility parameters.
 
-For this workflow, two transformations were added to the INES-tools. These are OSeMOSYS to INES specification:
+
+This workflow is model agnostic and is made compatible for different user interfaces of OSeMOSYS. The workflow starts with a ready OSeMOSYS model. It is transformed to a OSeMOSYS model to FlexTool through INES specification (https://github.com/ines-tools/ines-spec). OSeMOSYS is run and these results are passed to FlexTool. Running it is also handled in the workflow as well as result data handling.
+
+This workflow uses repositories to handle transformations with INES. Transforming OSeMOSYS data to INES
 https://github.com/ines-tools/ines-osemosys and from INES specification to FlexTool https://github.com/ines-tools/ines-flextool. Additionally, some generic functions are needed from INES-tools (https://github.com/ines-tools/ines-tools).
 
 This workflow uses Spine-Toolbox for the database and workflow management (https://github.com/spine-tools/Spine-Toolbox)
