@@ -1,15 +1,13 @@
 # OSeMOSYS-Flextool
 ## Integrating OSeMOSYS and IRENA FlexTool energy system models
 
-This is an automated workflow combining two energy system modelling tools OSeMOSYS and IRENA FlexTool. OSeMOSYS is a capacity expansion model and it is combined here with IRENA FlexTool that can be used to test flexibility of the energy system produced by OSeMOSYS. This is necessary as OSeMOSYS as a timeslice model does not take into consideration the whole timeline when making investment decisions and therefore system adequacy cannot be 
-guaranteed with the historical weather years.
+This is an automated workflow combining two energy system modelling tools OSeMOSYS and IRENA FlexTool. OSeMOSYS is a capacity expansion model and it is combined here with IRENA FlexTool that can be used to test flexibility of the energy system produced by OSeMOSYS. This is necessary as OSeMOSYS as a timeslice model does not take into consideration the whole timeline when making investment decisions and therefore system adequacy cannot be guaranteed with the historical weather years.
 
-The workflow creates the Flextool input data based on the given OSeMOSYS data, so that two model do not need to be created by hand. The exeption is the timeseries and other flexibility parameters.
+The workflow creates the Flextool input data based on the given OSeMOSYS data, so that two models do not need to be created by hand. The exeptions are the timeseries and other flexibility parameters that do not exist in the OSeMOSYS data. This workflow is model agnostic and is made to be compatible for different user interfaces of OSeMOSYS. 
 
+The workflow starts with a ready OSeMOSYS model. It is transformed to a OSeMOSYS model to FlexTool through INES specification (https://github.com/ines-tools/ines-spec). OSeMOSYS is run and these results are passed to FlexTool. Running it is also handled in the workflow as well as result data handling.
 
-This workflow is model agnostic and is made compatible for different user interfaces of OSeMOSYS. The workflow starts with a ready OSeMOSYS model. It is transformed to a OSeMOSYS model to FlexTool through INES specification (https://github.com/ines-tools/ines-spec). OSeMOSYS is run and these results are passed to FlexTool. Running it is also handled in the workflow as well as result data handling.
-
-This workflow uses repositories to handle transformations with INES. Transforming OSeMOSYS data to INES
+This workflow uses other repositories to handle transformations with INES. Transforming OSeMOSYS data to INES
 https://github.com/ines-tools/ines-osemosys and from INES specification to FlexTool https://github.com/ines-tools/ines-flextool. Additionally, some generic functions are needed from INES-tools (https://github.com/ines-tools/ines-tools).
 
 This workflow uses Spine-Toolbox for the database and workflow management (https://github.com/spine-tools/Spine-Toolbox)
@@ -18,10 +16,6 @@ For running the OSeMOSYS separately in Spine Toolbox go to:
 https://github.com/OSeMOSYS-FlexTool-integration/OSeMOSYS-SpineToolbox
 
 The repository includes a copy of the OSeMOSYS code and glpsol for running OSeMOSYS. They are in the folders mathprog_files and glpsol_files respectively. For both, their original licences apply and are provided in their folders.
-
-# Status
-
-Functional, but not completely tested.
 
 # Installation
 
