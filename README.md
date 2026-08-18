@@ -68,15 +68,21 @@ Choose the OSeMOSYS-FlexTool folder.
 
 This workflow assumes that the user has a functioning OSeMOSYS model. More specifically, the text file input that is passed to the OSeMOSYS for solving. The path to this file needs to be added to the OSeMOSYS_data dataconnection.
 
-0. If your Osemosys input file is in a otoole format. You can see it from the first row of the file. Click `OSeMOSYS-settings`. Double click the file path shown. Replace the False under the header 'otoole-format' to True.
+0. Only applies if your if your Osemosys input file is in a otoole format. You can see it from the first row of the file. Click `OSeMOSYS-settings`. Double click the file path shown. Replace the False under the header 'otoole-format' to True.
 
 1. Click `Osemosys_data`. Add file path by clicking the green plus symbol. Find your input file.
 
     ![add_file](./docs/add_file.png)
-2. Click `Read_OSeMOSYS`. Remove the old path from the third argument by clicking it and the red minus symbol. Drag the new path from the available resources as the "2:" argument. (Note that these are just paths to a file. You can change the contents of the file without having to do this again.)
+1. (OPTIONAL) Additionally, if you are using a modified version of Osemosys than provided and therefore have extra parameters in your data, you need to change the OSeMOSYS model used. This is done similarly as above. Click the OSeMOSYS_structure, add new file path by clicking the plus symbol. You can also remove the old file with the minus symbol. If this is not done, the workflow might crash when running Read_OSeMOSYS
+
+    ![add_osemosys](./docs/add_osemosys.png)
+    ![remove_osemosys](./docs/remove_osemosys.png)
+
+2. Click `Read_OSeMOSYS`. Remove the old path from the fourth argument by clicking it and the red minus symbol. Drag the new path from the available resources to the same slot, here as the "3:" argument. If you had the modified OSeMOSYS file, do the same for it. (Note that these are just paths to a file. You can change the contents of the file without having to do this again.)
     
     ![remove_file](./docs/remove_file.png)
     ![drag_file](./docs/drag_file.png)
+2. (OPTIONAL) If using modified OSeMOSYS file, replace them also in the Write_OSeMOSYS and Run_OSeMOSYS. 
 3. Run `Read_OSeMOSYS`.
     ![run_read](./docs/run_read_osemosys.png)
 4. Before running `OSeMOSYS to Ines` one might need to modify `Timeslices to Time` or `OSeMOSYS to ines settings`. You can open them by double clicking the file path or just searching them from the folder.
