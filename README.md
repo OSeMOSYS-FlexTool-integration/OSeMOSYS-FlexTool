@@ -73,40 +73,54 @@ This workflow assumes that the user has a functioning OSeMOSYS model. More speci
 1. Click `Osemosys_data`. Add file path by clicking the green plus symbol. Find your input file.
 
     ![add_file](./docs/add_file.png)
-1. (OPTIONAL) Additionally, if you are using a modified version of Osemosys than provided and therefore have extra parameters in your data, you need to change the OSeMOSYS model used. This is done similarly as above. Click the OSeMOSYS_structure, add new file path by clicking the plus symbol. You can also remove the old file with the minus symbol. If this is not done, the workflow might crash when running Read_OSeMOSYS
+1. (OPTIONAL, Check if you are using MUIO or other modified OSeMOSYS tools) Additionally, if you are using a modified version of Osemosys than provided and therefore have extra parameters in your data, you need to change the OSeMOSYS version the workflow uses. This is done in the same way as above. Click the OSeMOSYS_structure, add new file path to the OSeMOSYS tool code by clicking the plus symbol. You can also remove the old file with the minus symbol. If the file is not changed is not done, the workflow might crash when running Read_OSeMOSYS and at the latest when trying to run OSeMOSYS.
 
     ![add_osemosys](./docs/add_osemosys.png)
     ![remove_osemosys](./docs/remove_osemosys.png)
 
-2. Click `Read_OSeMOSYS`. Remove the old path from the fourth argument by clicking it and the red minus symbol. Drag the new path from the available resources to the same slot, here as the "3:" argument. If you had the modified OSeMOSYS file, do the same for it. (Note that these are just paths to a file. You can change the contents of the file without having to do this again.)
+2. Click `Read_OSeMOSYS`. Remove the old path from the fourth argument by clicking it and the red minus symbol. Drag the new path from the available resources to the same slot, here as the "3:" argument. If you had the modified OSeMOSYS code file, do the same for it. (Note that these are just paths to a file. You can change the contents of the file without having to do this again.)
     
     ![remove_file](./docs/remove_file.png)
     ![drag_file](./docs/drag_file.png)
-2. (OPTIONAL) If using modified OSeMOSYS file, replace them also in the Write_OSeMOSYS and Run_OSeMOSYS. 
+2. (OPTIONAL, Check if you are using MUIO or other modified OSeMOSYS tools) If using modified OSeMOSYS code file, replace them also in the Write_OSeMOSYS and Run_OSeMOSYS. 
 3. Run `Read_OSeMOSYS`.
     ![run_read](./docs/run_read_osemosys.png)
 4. Before running `OSeMOSYS to Ines` one might need to modify `Timeslices to Time` or `OSeMOSYS to ines settings`. You can open them by double clicking the file path or just searching them from the folder.
     + `Timeslices to Time` contains the timeline to be created and the timeslice corresponding to each timestep. 
-        + The INES-spec requires real timestamps. However, as the years use a common yearly timeline in FlexTool it does not really matter which year you are using for the timestamps.  
-        + It will create timeseries using the value from that timeslice. As you will probably replace these averaged timeseries with the better ones later, it does not matter that much which timeslice you are using. 
+        + The INES-spec requires real timestamps. However, as Flextool uses a common yearly timeline it does not really matter which year you are using for the timestamps. Therefore, changing that column is not mandatory.
+        + It will create timeseries using the value from that timeslice. As you will probably replace these averaged timeseries with the better ones later, it does not matter that much which timeslice you are using. So again, changing the column is not mandatory.
         + An example full year csv-file comes with this repository. So you really don't need to modify this file, unless you want to use different step length than 1 hour.
     + `OSeMOSYS to ines settings`  contains generic data settings for the transformation.
         + Default values for the data that does not exist. For example, default unitsize and unlimited_unit_capacity.
-        + Unit conversion factors. The OSeMOSYS supports free units, but for the Ines and FlexTool these are fixed. Check what units you are using and if you need to change the factors.
+        + **Unit conversion factors**!!! The OSeMOSYS supports free units, but for the Ines and FlexTool these are fixed. Check what units you are using and if you need to change the factors.
+        The default units are for OSeMOSYS
+            + Energy and demands in PJ/a
+	        + Power plants in GW
+	        + Investment and Fixed O&M Costs: Power plant: Million CUR/GW (CUR/kW)
+	        + Other plant costs: Million CUR/PJ/a
+	        + Variable O&M (& Import) Costs: Million CUR/PJ (CUR/GJ)
+        
+        + These are translated to MW, MWh, CUR/MW in FlexTool.
 5. Run `OSeMOSYS to Ines` and `ines_to_flextool`. You can check how the INES data looks like, but you won't need it. Now you should have transformed the OSeMOSYS model to FlexTool. 
 
-6. Add timeseries. As a timeslice model, OSeMOSYS does not include timeseries, but they are essential for flexiblity considerations. Some parameters should be given timeseries values. The transformation already created the timeseries in correct format, but the values are just the timeslice value repeated for each timestep. The timeseries you should add are:
+6. Add timeseries to FlexTool. As a timeslice model, OSeMOSYS does not include timeseries, but they are essential for flexiblity considerations. Some parameters should be given timeseries values. The transformation already created the timeseries in correct format, but the values are just the timeslice value repeated for each timestep or just ones or zeros. The timeseries you should add are:
     + Demand: The parameter is node -- `inflow`
     + VRE production profiles: profile -- `profile` 
     + Other parameters can also have timeseries values, but these are the minimum required to perfrom flexibility analysis
 
-At this point you should familiarize yourself with the use of the FlexTool: https://irena-flextool.github.io/flextool/tutorial/ . Note that you have installed the FlexTool already, so if you want its standalone workflow for the tutorial. Just open the FlexTool folder as spinetoolbox project.
+Changing the inflow is done in the pic below. It is easiest by just copy pasting columns from excel or csv tables. As a note, the inflow values should be negative to produce demand.
+![flextool_timeseries](./docs/flextool_timeseries.png)
+
+However, if you are not already FlexTool user. At this point you should familiarize yourself with the use of the FlexTool: https://irena-flextool.github.io/flextool/tutorial/ . Note that you have installed the FlexTool already, so you don't need to install FlexTool separately. You just need to open want its standalone workflow for the tutorial. Just open the FlexTool folder as spinetoolbox project.
+
+![open_flextool](./docs/open_flextool.png)
+
 
 Next we will replace the initial capacities with the results of the OSeMOSYS. To do this:
 
 7. Run `Write_OSeMOSYS`. This creates a new osemosys input file. The filename can be changed from the osemosys settings.
-8. Run `Run_OSeMOSYS`. If this crashes, the most likely situation is that you are using a different version of osemosys and there is a conflict with the input data. However, this can be fixed by changing the osemosys model with the one you are using outside this integration. As with the 1. and 2. sections remove and replace the file in Osemosys_structure.
-9. Run `OSeMOSYS_results_to_flextool`. This replaces the capacity values in the flextool input database with the results.
+8. Run `Run_OSeMOSYS`. If this crashes, the most likely situation is that you are using a different version of osemosys and there is a conflict with the input data. However, this can be fixed by changing the osemosys model with the one you are using outside this integration. Look back to sections 1 and 2.
+9. Run `OSeMOSYS_results_to_flextool`. This replaces the capacity values in the flextool input database with the results. It also sets the flextool model to be only operational model.
 10. Now you are ready to run `Flextool3` and `Import_flex3`. These will create the flextool results to `FlexTool results db`
 11. You can look at the results from the database directly or export them to excel format.
 12. If the results include upward penalties, the system is not flexible enough to cover the situations where the VRE production is low or the demand is high.
